@@ -8,9 +8,10 @@ import Button from "./Button";
 
 interface NavProps {
   menus: Array<NavMenu>;
+  name: string;
 }
 
-export function Nav({ menus }: NavProps) {
+export function Nav({ menus, name }: NavProps) {
   const getNavMenuComponents = (direction: "horizontal" | "vertical") => {
     return menus.map((v, i) => {
       return (
@@ -38,7 +39,7 @@ export function Nav({ menus }: NavProps) {
     });
   };
   return (
-    <div className={`navbar ${getColor("base", 100)}`}>
+    <div className={`navbar ${getColor("base", 200)}`}>
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -48,15 +49,15 @@ export function Nav({ menus }: NavProps) {
             tabIndex={0}
             className={`menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52 ${getColor(
               "base",
-              100
+              200
             )}`}
           >
             {getNavMenuComponents("vertical")}
           </ul>
         </div>
         <Link href={"/"} passHref>
-          <Button ghost={true} className="normal-case text-xl">
-            {APPNAME}
+          <Button ghost className="normal-case text-xl">
+            {name}
           </Button>
         </Link>
         {/**
