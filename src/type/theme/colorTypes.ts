@@ -15,7 +15,8 @@ const availables = [
   "success",
   "warning",
   "error",
+  "base",
 ] as const;
 
-export type themeColors = typeof availables[number];
-export { availables as themeColorsValue };
+export type ColorTypes = typeof availables[number];
+export { availables as ColorTypesValue };
