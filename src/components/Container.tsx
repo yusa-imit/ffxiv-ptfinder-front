@@ -1,9 +1,9 @@
 import { theme } from "@recoil/theme";
-import { ReactChildren } from "react";
+import { ReactChild, ReactChildren } from "react";
 import { useRecoilValue } from "recoil";
 
 interface ContainerProps {
-  children?: ReactChildren | ReactChildren[];
+  children?: ReactChild | ReactChildren;
 }
 
 export default function Container({ children }: ContainerProps): JSX.Element {
