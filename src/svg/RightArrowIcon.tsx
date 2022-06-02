@@ -1,4 +1,4 @@
-export default function BottomDownIcon() {
+export default function RightArrowIcon() {
   return (
     <svg
       className="fill-current"
