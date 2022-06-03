@@ -1,5 +1,5 @@
-import { themeColorsValue } from "@type/theme/themeColors";
+import { ColorTypesValue } from "@type/theme/colorTypes";
 import { getClassname } from "../lib/getClassname";
 
 const prefix = "btn-";
-export const buttonClassNameColor = getClassname(themeColorsValue, prefix);
+export const buttonClassNameColor = getClassname(ColorTypesValue, prefix);

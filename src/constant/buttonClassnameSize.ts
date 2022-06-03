@@ -1,5 +1,8 @@
-import { themeSizesValue } from "@type/theme/themeSizes";
+import { ResponsiveBreakpointsValue } from "@type/theme/responsiveBreakpoints";
 import { getClassname } from "src/lib/getClassname";
 
 const prefix = "btn-";
-export const buttonClassnameSize = getClassname(themeSizesValue, prefix);
+export const buttonClassnameSize = getClassname(
+  ResponsiveBreakpointsValue,
+  prefix
+);
