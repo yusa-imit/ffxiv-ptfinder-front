@@ -24,7 +24,7 @@ interface NormalButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 }
 
 export default function Button({
-  color = "primary",
+  color = "",
   size = "md",
   ghost,
   link,

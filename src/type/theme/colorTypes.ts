@@ -16,6 +16,7 @@ const availables = [
   "warning",
   "error",
   "base",
+  "",
 ] as const;
 
 export type ColorTypes = typeof availables[number];
