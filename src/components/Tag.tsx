@@ -12,7 +12,7 @@ interface TagProps {
 export default function Tag({
   data,
   size = "md",
-  colorType = "",
+  colorType,
   outline,
 }: TagProps): JSX.Element {
   return (
@@ -20,7 +20,7 @@ export default function Tag({
       className={`badge ${outline && "badge-outline"} ${getSizeClass(
         "badge",
         size
-      )} ${getColorTypeClass("badge", colorType)}`}
+      )} ${colorType && getColorTypeClass("badge", colorType)}`}
     >
       {data}
     </div>
