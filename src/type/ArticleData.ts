@@ -6,11 +6,15 @@ export interface ArticleData {
   title: string;
   description: string;
   dungeon: Dungeon;
-  schedule: Schedule;
-  job: Job;
+  isTemporary: boolean;
+  scheduleWrittenInDescription: boolean;
+  schedule?: Schedule;
+  job: Array<Job>;
   region: Region;
   specification: Specification;
   language: Language;
+  answerType: 0 | 1 | 2; // 0 : 직접 연락 1: 시스템으로부터 연락을 받음 2: 코멘트
+  answerAddress?: Array<AnswerAddress>;
 }
 
 interface Dungeon {
@@ -24,7 +28,7 @@ interface Dungeon {
  *    이 변수가 true일 경우, 이하의 변수들은 모두 기본형으로 설정
  * @param negotiable 스케줄을 협상 가능한지 여부
  * @param day 활동일 배열. 길이 7이 강제되는 Array. 0일 경우 활동일 아님, 1일경우 활동일.
- * @param timeType 활동시간 배열의 타입 @param time 참고
+ * @param timeType 활동시간 배열의 타입 time 참고
  * @param time 활동 시간 배열. 기본적인 구조는 day 데이터와 같음
  * timeType 선택에 따라 일주일 전체 적용/평일*주말/일주일 각각 을 선택가능함
  * 0일 경우 : 현재 활동 시간을 활동일 전체에 적용
@@ -33,7 +37,6 @@ interface Dungeon {
  * @param timezone 작성자의 timezone
  */
 interface Schedule {
-  writtenInDescription: boolean;
   negotiable: boolean;
   day: FixedLengthArray<0 | 1, 7>;
   timeType: 0 | 1 | 2;
@@ -53,10 +56,19 @@ type Timezone = typeof availableTimezone[number];
  * @param firstWeek 첫 주 공략 목적
  * @param worldFirstRace 세계 레이스 목적
  * @param fflogsRequired fflogs 입력 요구
+ * @param voiceChat 0 : 보이스챗 필수, 1: 보이스 챗 사용, 듣톡 가능 2: 보이스챗 사용 안함
  */
 interface Specification {
-  minimumWeek: boolean;
+  minimumWeek: number;
   firstWeek: boolean;
   worldFirstRace: boolean;
   fflogsRequired: boolean;
+  voiceChat: 0 | 1 | 2;
 }
+
+interface AnswerAddress {
+  type: AnswerAddressType;
+  address: string;
+}
+
+type AnswerAddressType = "twitter" | "facebook" | "email";

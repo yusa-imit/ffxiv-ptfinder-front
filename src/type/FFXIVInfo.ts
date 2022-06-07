@@ -1,4 +1,4 @@
-export const Language_Value = ["JP", "EN", "FR", "DE", "KR", "CN"];
+export const Language_Value = ["JP", "EN", "FR", "DE", "KR", "CN"] as const;
 export const Region_Value = ["JP", "NA", "EU", "OA", "CN", "KR"] as const;
 export const Tank_Value = ["PLD", "WAR", "DRK", "GNB"] as const;
 export const Healer_Value = ["WHM", "SCH", "AST", "SGE"] as const;
