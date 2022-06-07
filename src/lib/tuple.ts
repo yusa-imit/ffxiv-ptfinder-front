@@ -1,2 +1,2 @@
-import { Narrowable } from "@type/Narrowable";
+import { Narrowable } from "@type/DataTypes/Narrowable";
 export const tuple = <T extends Narrowable[]>(...args: T) => args;
