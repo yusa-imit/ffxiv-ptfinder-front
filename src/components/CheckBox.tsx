@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { SetStateAction } from "react";
+import { SetterOrUpdater } from "recoil";
 import { getColorTypeClass, getSizeClass } from "src/lib/classNameFunction";
 import { ResponsiveBreakpoints } from "../type/theme/responsiveBreakpoints";
 interface CheckBoxProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -6,6 +7,10 @@ interface CheckBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   colorType: "primary" | "secondary" | "accent";
   size: ResponsiveBreakpoints;
   disabled?: boolean;
+  state: boolean[];
+  setState:
+    | SetterOrUpdater<Array<boolean>>
+    | React.Dispatch<SetStateAction<boolean[]>>;
 }
 export default function CheckBox({
   data,
@@ -13,10 +18,11 @@ export default function CheckBox({
   size,
   className,
   disabled,
+  state,
+  setState,
   ...etc
 }: CheckBoxProps) {
   const PREFIX = "checkbox-";
-  const [state, setState] = useState(new Array(data.length).fill(false));
   return (
     <div className={`${className}`} {...etc}>
       {data.map((d_v, d_i) => {

@@ -1,19 +1,23 @@
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
+import { SetterOrUpdater } from "recoil";
 import { getColorTypeClass, getSizeClass } from "src/lib/classNameFunction";
 import { ResponsiveBreakpoints } from "../type/theme/responsiveBreakpoints";
 interface RadioProps extends React.HTMLAttributes<HTMLDivElement> {
   data: Array<string>;
   colorType: "primary" | "secondary" | "accent";
   size: ResponsiveBreakpoints;
+  state: number;
+  setState: SetterOrUpdater<number> | React.Dispatch<SetStateAction<number>>;
 }
 export default function Radio({
   data,
   className,
   colorType,
   size,
+  state,
+  setState,
   ...etc
 }: RadioProps) {
-  const [state, setState] = useState(0);
   return (
     <div className={` ${className}`} {...etc}>
       {data.map((d_v, d_i) => {
