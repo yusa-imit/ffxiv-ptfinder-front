@@ -18,7 +18,10 @@ export function Nav({ menus, name, buttons, className }: NavProps) {
   const [mobile_menu_open, set_mobile_menu_open] = useState(false);
   return (
     <div
-      className={`navbar ${getColor("base", 200)} ${className} absolute top-2`}
+      className={`navbar w-full xl:w-[1280px] ${getColor(
+        "base",
+        200
+      )} ${className} absolute top-2`}
     >
       <div className="navbar-start">
         <div

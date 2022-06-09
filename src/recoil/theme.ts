@@ -5,6 +5,6 @@ import { recoilPersist } from "recoil-persist";
 const { persistAtom } = recoilPersist();
 export const theme = atom<Theme>({
   key: "theme",
-  default: "cupcake",
+  default: "light",
   effects_UNSTABLE: [persistAtom],
 });

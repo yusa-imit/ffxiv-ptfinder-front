@@ -9,6 +9,7 @@ const Home: NextPage = () => {
   return (
     <ContainerWithNav>
       <Menu data={NavMenu} direction={"vertical"}></Menu>
+      <Menu data={NavMenu} direction={"horizontal"}></Menu>
     </ContainerWithNav>
   );
 };

@@ -21,12 +21,11 @@ export default function Menu({
   console.log(direction);
   return (
     <ul
-      tabIndex={nested}
-      className={` ${
+      className={`${nested > 0 ? "" : "menu"} ${
         direction === "horizontal"
-          ? "menu menu-horizontal p-0 mx-2"
-          : "menu mt-3 p-2"
-      }  rounded-box ${getColor("base", 200)} ${className}`}
+          ? nested === 0 && "menu-horizontal " + " p-0 mx-2"
+          : "p-1"
+      }  ${getColor("base", 200)} ${nested > 0 && "shadow"} ${className}`}
       {...etc}
     >
       {data.map((d_value, d_idx) => {
@@ -35,9 +34,7 @@ export default function Menu({
             <li
               key={d_idx}
               tabIndex={d_value.subMenus ? 0 : undefined}
-              className={`${"ml-" + nested * 2} ${
-                route.pathname === d_value.href ? "active" : ""
-              }`}
+              className={`${route.pathname === d_value.href ? "active" : ""}`}
             >
               {d_value.subMenus !== undefined ? (
                 <>
