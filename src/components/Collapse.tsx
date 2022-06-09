@@ -1,7 +1,7 @@
-import { ReactChild, ReactChildren, useState } from "react";
+import { ReactNode, useState } from "react";
 interface CollapseProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
-  content: ReactChild | ReactChildren;
+  content: ReactNode;
 }
 export default function Collapse({
   title,

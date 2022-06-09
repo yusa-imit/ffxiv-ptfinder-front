@@ -1,7 +1,7 @@
-import { ReactChild, ReactChildren } from "react";
+import { ReactNode } from "react";
 import { getColor } from "src/lib/getColor";
 interface FooterProps extends React.HTMLAttributes<HTMLElement> {
-  children?: ReactChild | ReactChildren;
+  children?: ReactNode;
 }
 
 export default function Footer({ children }: FooterProps) {

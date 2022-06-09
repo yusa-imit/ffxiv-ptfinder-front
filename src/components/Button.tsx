@@ -1,5 +1,5 @@
 import { ColorTypes } from "@type/theme/colorTypes";
-import { Children, ReactChild, ReactChildren, ReactNode } from "react";
+import { ReactNode } from "react";
 import { getColorTypeClass, getSizeClass } from "src/lib/classNameFunction";
 import { ResponsiveBreakpoints } from "../type/theme/responsiveBreakpoints";
 

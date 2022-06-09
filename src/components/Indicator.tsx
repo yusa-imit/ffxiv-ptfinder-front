@@ -1,11 +1,11 @@
-import { ReactChild } from "react";
+import { ReactNode } from "react";
 import { ColorTypes } from "../type/theme/colorTypes";
 interface IndicatorProps {
   data?: string;
   colorType?: ColorTypes;
   positionX?: "start" | "center" | "end";
   positionY?: "top" | "middle" | "bottom";
-  children: ReactChild;
+  children: ReactNode;
 }
 export default function Indicator({
   data,
@@ -21,6 +21,7 @@ export default function Indicator({
           positionX && "indicator-" + positionX
         } ${positionY && "indicator-" + positionY}`}
       ></span>
+      {children}
     </div>
   );
 }

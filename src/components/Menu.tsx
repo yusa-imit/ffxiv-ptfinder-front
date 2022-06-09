@@ -47,9 +47,10 @@ export default function Menu({ data, direction }: MenuProps) {
             </li>
           );
         } else {
-          return new Error(
+          console.error(
             "Menu element's type could not be able to be assigned except undefined or 'category'."
           );
+          return;
         }
       })}
     </ul>

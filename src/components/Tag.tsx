@@ -1,9 +1,9 @@
 import { ResponsiveBreakpoints } from "../type/theme/responsiveBreakpoints";
 import { ColorTypes } from "../type/theme/colorTypes";
 import { getColorTypeClass, getSizeClass } from "src/lib/classNameFunction";
-import { ReactChild } from "react";
+import { ReactNode } from "react";
 interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
-  data: string | ReactChild;
+  data: ReactNode;
   size?: ResponsiveBreakpoints;
   colorType?: ColorTypes;
   outline?: boolean;

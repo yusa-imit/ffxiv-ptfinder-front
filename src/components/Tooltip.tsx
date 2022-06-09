@@ -1,7 +1,7 @@
-import { ReactChild } from "react";
+import { ReactNode } from "react";
 interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   desc: string;
-  children?: ReactChild;
+  children?: ReactNode;
 }
 export default function Tooltip({
   desc,

@@ -1,6 +1,6 @@
 import NavMenu from "@type/navMenu";
 import Link from "next/link";
-import { useState, ReactChild, ReactChildren } from "react";
+import { useState, ReactNode } from "react";
 import { getColor } from "src/lib/getColor";
 import MenuIcon from "src/svg/MenuIcon";
 import Button from "./Button";
@@ -9,7 +9,7 @@ import Menu from "./Menu";
 interface NavProps {
   menus: Array<NavMenu>;
   name: string;
-  buttons: ReactChild | ReactChildren;
+  buttons: ReactNode;
 }
 
 export function Nav({ menus, name, buttons }: NavProps) {
