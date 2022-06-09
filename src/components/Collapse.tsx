@@ -13,15 +13,15 @@ export default function Collapse({
   return (
     <div
       tabIndex={0}
-      className={`collapse collapse-arrow border ${
+      className={`collapse collapse-arrow ${
         open === true ? "collapse-open" : "collapse-close"
-      } border-base-300 bg-base-200 rounded-box ${className}`}
+      } bg-base-200 rounded-box ${className}`}
       {...etc}
       onClick={() => {
         setOpen((prev) => !prev);
       }}
     >
-      <div className="collapse-title font-medium">{title}</div>
+      <div className="collapse-title pr-0">{title}</div>
       <div className="collapse-content">{content}</div>
     </div>
   );

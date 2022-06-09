@@ -11,13 +11,17 @@ export default function Container({ children }: ContainerProps): JSX.Element {
   const globalTheme = useRecoilValue(theme);
   return (
     <div
-      className={`w-full xl:w-[1280px] h-fit flex justify-center items-center p-5 ${getColor(
-        "base",
-        100
-      )}`}
+      className="w-screen h-screen flex justify-center items-center"
       data-theme={globalTheme}
     >
-      {children}
+      <div
+        className={`w-full xl:w-[1280px] min-h-screen h-fit flex justify-center items-center flex-col px-5 ${getColor(
+          "base",
+          300
+        )}`}
+      >
+        {children}
+      </div>
     </div>
   );
 }

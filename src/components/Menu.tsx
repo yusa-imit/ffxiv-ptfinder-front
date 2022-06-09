@@ -4,19 +4,30 @@ import { useRouter } from "next/router";
 import { getColor } from "src/lib/getColor";
 import Collapse from "./Collapse";
 
-interface MenuProps {
+interface MenuProps extends React.HTMLAttributes<HTMLUListElement> {
   data: Array<NavMenu>;
   direction: "horizontal" | "vertical";
+  nested?: number;
 }
 
-export default function Menu({ data, direction }: MenuProps) {
+export default function Menu({
+  data,
+  direction,
+  nested = 0,
+  className,
+  ...etc
+}: MenuProps) {
   const route = useRouter();
+  console.log(direction);
   return (
     <ul
-      tabIndex={0}
-      className={`menu dropdown-content ${
-        direction === "horizontal" ? "mt-3 p-2" : "p-0"
-      } shadow rounded-box w-fit ${getColor("base", 200)}`}
+      tabIndex={nested}
+      className={` ${
+        direction === "horizontal"
+          ? "menu menu-horizontal p-0 mx-2"
+          : "menu mt-3 p-2"
+      }  rounded-box ${getColor("base", 200)} ${className}`}
+      {...etc}
     >
       {data.map((d_value, d_idx) => {
         if (!d_value.type) {
@@ -24,20 +35,22 @@ export default function Menu({ data, direction }: MenuProps) {
             <li
               key={d_idx}
               tabIndex={d_value.subMenus ? 0 : undefined}
-              className={`${route.pathname === d_value.href ? "active" : ""}`}
+              className={`${"ml-" + nested * 2} ${
+                route.pathname === d_value.href ? "active" : ""
+              }`}
             >
-              <Link href={d_value.href} passHref>
-                {d_value.subMenus !== undefined ? (
-                  <Collapse
-                    title={d_value.title}
-                    content={
-                      <Menu data={d_value.subMenus} direction={direction} />
-                    }
-                  />
-                ) : (
+              {d_value.subMenus !== undefined ? (
+                <>
                   <span>{d_value.title}</span>
-                )}
-              </Link>
+                  <Menu
+                    data={d_value.subMenus}
+                    direction={direction}
+                    nested={nested + 1}
+                  />
+                </>
+              ) : (
+                <span>{d_value.title}</span>
+              )}
             </li>
           );
         } else if (d_value.type === "category") {

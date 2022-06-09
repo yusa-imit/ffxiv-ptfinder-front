@@ -43,7 +43,7 @@ export default function Button({
 }: NormalButtonProps): JSX.Element {
   return (
     <button
-      className={`${color && getColorTypeClass("btn-", color)} ${
+      className={`btn ${color && getColorTypeClass("btn-", color)} ${
         size && getSizeClass("btn-", size)
       } ${ghost === true && "btn-ghost"} ${link === true && "btn-link"} ${
         outline === true && "btn-outline"

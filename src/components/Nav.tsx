@@ -5,47 +5,21 @@ import { getColor } from "src/lib/getColor";
 import MenuIcon from "src/svg/MenuIcon";
 import Button from "./Button";
 import Menu from "./Menu";
+import { useRecoilValue } from "recoil";
+import { theme } from "@recoil/theme";
 
-interface NavProps {
+interface NavProps extends React.HTMLAttributes<HTMLDivElement> {
   menus: Array<NavMenu>;
   name: string;
   buttons: ReactNode;
 }
 
-export function Nav({ menus, name, buttons }: NavProps) {
-  /**
-   * DEPRECATED FUNCTION
-   * Remove this on production
-  const getNavMenuComponents = (direction: "horizontal" | "vertical") => {
-    return menus.map((v, i) => {
-      return (
-        <li key={i} tabIndex={v.subMenus ? 0 : undefined}>
-          <Link href={v.href} passHref>
-            {v.title}
-            {v.subMenus &&
-              (direction === "horizontal" ? (
-                <BottomArrowIcon />
-              ) : (
-                <RightArrowIcon />
-              ))}
-          </Link>
-          {v.subMenus && (
-            <ul className="p-2">
-              {v.subMenus.map((sub_v, sub_i) => (
-                <Link href={sub_v.href} key={sub_i} passHref>
-                  <li>{sub_v.title}</li>
-                </Link>
-              ))}
-            </ul>
-          )}
-        </li>
-      );
-    });
-  };
-   */
+export function Nav({ menus, name, buttons, className }: NavProps) {
   const [mobile_menu_open, set_mobile_menu_open] = useState(false);
   return (
-    <div className={`navbar ${getColor("base", 200)}`}>
+    <div
+      className={`navbar ${getColor("base", 200)} ${className} absolute top-2`}
+    >
       <div className="navbar-start">
         <div
           className={`dropdown ${mobile_menu_open ? "dropdown-open" : ""}`}
