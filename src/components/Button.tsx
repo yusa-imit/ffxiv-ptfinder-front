@@ -1,7 +1,5 @@
-import { buttonClassNameColor } from "@constant/buttonClassnameColor";
 import { ColorTypes } from "@type/theme/colorTypes";
-import { Children, ReactChild, ReactChildren } from "react";
-import { buttonClassnameSize } from "src/constant/buttonClassnameSize";
+import { Children, ReactChild, ReactChildren, ReactNode } from "react";
 import { getColorTypeClass, getSizeClass } from "src/lib/classNameFunction";
 import { ResponsiveBreakpoints } from "../type/theme/responsiveBreakpoints";
 
@@ -21,7 +19,7 @@ interface NormalButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   circle?: boolean;
   square?: Boolean;
   className?: string;
-  children?: ReactChild | ReactChildren;
+  children?: ReactNode;
 }
 
 export default function Button({
@@ -40,6 +38,7 @@ export default function Button({
   circle,
   square,
   className,
+  children,
   ...others
 }: NormalButtonProps): JSX.Element {
   return (
@@ -57,7 +56,7 @@ export default function Button({
       } ${square === true && "btn-square"} ${className}`}
       {...others}
     >
-      {Children}
+      {children}
     </button>
   );
 }

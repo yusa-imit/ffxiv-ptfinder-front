@@ -1,13 +1,9 @@
 import { AppProps } from "next/app";
-import { useEffect } from "react";
 import { RecoilRoot } from "recoil";
-import { buttonClassnameSize } from "src/constant/buttonClassnameSize";
+import { appWithTranslation } from "next-i18next";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    console.log(buttonClassnameSize);
-  }, []);
   return (
     <RecoilRoot>
       <Component {...pageProps} />
@@ -15,4 +11,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
