@@ -4,7 +4,7 @@ import { NavMenu } from "@constant/NavMenu";
 import { GetStaticProps, NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-const Home: NextPage = () => {
+const DCT: NextPage = () => {
   return (
     <ContainerWithNav>
       <Menu data={NavMenu} direction={"vertical"}></Menu>
@@ -21,4 +21,4 @@ export async function getStaticProps({ locale }: any) {
   };
 }
 
-export default Home;
+export default DCT;

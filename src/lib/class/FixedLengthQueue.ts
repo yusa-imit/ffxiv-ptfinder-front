@@ -1,5 +1,5 @@
 export class FixedLengthQueue<T> extends Array<T> {
-  protected fixedLength;
+  protected fixedLength: number;
   constructor(items: Array<T>, l: number) {
     super(...items);
     this.fixedLength = l;
@@ -11,7 +11,7 @@ export class FixedLengthQueue<T> extends Array<T> {
   private setToFixedLength() {
     if (this.length > this.fixedLength) {
       while (this.length > this.fixedLength) {
-        this.shift;
+        this.shift();
       }
     }
   }
